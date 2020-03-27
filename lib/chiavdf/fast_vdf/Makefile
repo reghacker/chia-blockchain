@@ -1,8 +1,8 @@
 UNAME := $(shell uname)
 
-LDFLAGS += -no-pie
+LDFLAGS += 
 LDLIBS += -lgmpxx -lgmp -lboost_system -pthread
-CXXFLAGS += -std=c++1z -D VDF_MODE=0 -no-pie -pthread
+CXXFLAGS += -std=c++1z -D VDF_MODE=0 -pthread
 ifeq ($(UNAME),Darwin)
 CXXFLAGS += -D CHIAOSX=1
 else

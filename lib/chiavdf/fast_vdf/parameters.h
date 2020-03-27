@@ -37,9 +37,6 @@ inline bool hasAVX2()
 #if defined(__x86_64__)
     bAVX2=__builtin_cpu_supports("avx2");
 #endif
-#if __APPLE__
-    bAVX2=false; // difficult to support without absolute addressing
-#endif
   }
   return bAVX2;
 }

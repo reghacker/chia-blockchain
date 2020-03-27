@@ -81,7 +81,7 @@ string track_asm(string comment, string jump_to = "") {
     APPEND_M(str( "MOV RAX, [asm_tracking_data+#]", to_hex(8*(id-1)) ));
     APPEND_M(str( "LEA RAX, [RAX+1]" ));
     APPEND_M(str( "MOV [asm_tracking_data+#], RAX", to_hex(8*(id-1)) ));
-#ifdef CHIAOSX
+#ifndef CHIAPIE
     APPEND_M(str( "LEA RAX, [RIP+comment_label] " ));
 #else
     APPEND_M(str( "MOV RAX, OFFSET FLAT:#", comment_label ));
