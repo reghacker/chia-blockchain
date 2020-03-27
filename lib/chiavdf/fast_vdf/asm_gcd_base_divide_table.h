@@ -57,7 +57,7 @@ void divide_table(reg_alloc regs, reg_scalar a, reg_scalar b, reg_scalar q, reg_
     APPEND_M(str( "#:", b_shift_label ));
 
     APPEND_M(str( "SARX RAX, `b, `q" )); // b_approx = b>>b_shift
-#ifndef CHIAPIE
+#ifdef CHIAOSX
     APPEND_M(str( "LEA RCX, [RIP+divide_table]" )); // b_approx_inverse = divide_table[b_approx]
     APPEND_M(str( "MOV RAX, [RCX+RAX*8]"));
 #else
