@@ -57,7 +57,9 @@ void divide_table(reg_alloc regs, reg_scalar a, reg_scalar b, reg_scalar q, reg_
     APPEND_M(str( "#:", b_shift_label ));
 
     APPEND_M(str( "SARX RAX, `b, `q" )); // b_approx = b>>b_shift
+#ifndef CHIAOSX // Fix this if you want AVX2 to work on apple with non absolute addressing
     APPEND_M(str( "MOV RAX, [divide_table+RAX*8]" )); // b_approx_inverse = divide_table[b_approx]
+#endif
 
     APPEND_M(str( "IMUL `a" )); // q = (b_approx_inverse*a)>>64
     APPEND_M(str( "SARX `q, RDX, `q" )); // q = q>>b_shift

@@ -151,15 +151,15 @@ struct expand_macros {
 
     string alloc_label() {
         assert(num_active_recordings==0);
-        string res = "_label_" + to_string(next_label_id);
+        string res = "_" + asmprefix + "label_" + to_string(next_label_id);
         ++next_label_id;
         return res;
     }
 
     string alloc_error_label() {
         assert(num_active_recordings==0);
-        string res = "label_error_" + to_string(next_error_label_id);
-        ++next_error_label_id;
+        string res = asmprefix + "label_error_" + to_string(next_error_label_id);
+	++next_error_label_id;
         return res;
     }
 
@@ -321,8 +321,8 @@ struct expand_macros {
             if (output_tags && !c_tag.empty()) {
                 c_tag = "_" + c_tag;
             }
-            c.at(1)=str( "Xx_##: ", next_line, c_tag ) + c.at(1);
-            ++next_line;
+            c.at(1)=asmprefix + str( "Xx_##: ", next_line, c_tag ) + c.at(1);
+	    ++next_line;
 
 
             for (int x=1;x<c.size();++x) {
