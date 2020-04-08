@@ -12,7 +12,7 @@ cffi==1.13.2
 chardet==3.0.4
 chiabip158==0.12
 chiapos==0.12.4
-chiavdf==0.12.2
+chiavdf==0.2b3
 Click==7.0
 colorlog==4.1.0
 cryptography==2.8
